@@ -8,14 +8,18 @@ Repositório para publicar prévias independentes de sites de clientes.
 /
 ├── index.html
 └── previews/
-    └── barbearia-philereno/
+    ├── barbearia-philereno/
         ├── index.html
         ├── assets/
         └── imagens
+    └── i-pet-you/
+        ├── index.html
+        └── hero-pets.webp
 ```
 
-Cada cliente deve ficar em uma pasta própria dentro de `previews/`. Para adicionar o petshop, use por exemplo `previews/nome-do-petshop/` e acrescente um cartão na página inicial.
+Cada cliente fica em uma pasta própria dentro de `previews/`. Ao adicionar uma nova prévia, inclua também seu cartão na página inicial.
 
 ## Prévia disponível
 
 - [Barbearia Philereno](https://joaopedrodev67-commits.github.io/dev-showcase/previews/barbearia-philereno/)
+- [I Pet You](https://joaopedrodev67-commits.github.io/dev-showcase/previews/i-pet-you/)
