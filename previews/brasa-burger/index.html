@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BRASA. — smash burgers feitos no fogo, com ingredientes selecionados e sabor sem atalhos.">
+  <meta name="theme-color" content="#0b0908">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="BRASA. | Burger & Fire">
+  <meta property="og:description" content="Fogo alto. Sabor de verdade. Conheça nossos smash burgers.">
+  <meta property="og:image" content="https://joaopedrodev67-commits.github.io/dev-showcase/previews/brasa-burger/assets/hero-burger.webp">
+  <title>BRASA. | Burger & Fire</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="./assets/hero-burger.webp" fetchpriority="high">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-header" id="inicio">
+    <div class="container nav-wrap">
+      <a class="brand" href="#inicio" aria-label="BRASA. — início"><span>BRASA</span><b>.</b></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu" aria-label="Abrir menu">
+        <span></span><span></span>
+      </button>
+      <nav class="main-nav" id="main-menu" aria-label="Navegação principal">
+        <a href="#cardapio">Cardápio</a>
+        <a href="#assinatura">O favorito</a>
+        <a href="#sobre">Nossa brasa</a>
+        <a href="#visite">Visite</a>
+      </nav>
+      <button class="cart-button" type="button" aria-label="Abrir sacola, 0 itens" aria-controls="cart-panel">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h15l-2 8H8L6 3H3m6 16a1 1 0 1 0 0 .01M18 19a1 1 0 1 0 0 .01"/></svg>
+        <span>Sacola</span><b class="cart-count" aria-hidden="true">0</b>
+      </button>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" aria-labelledby="hero-title">
+      <img class="hero-image" src="./assets/hero-burger.webp" alt="Hambúrguer artesanal duplo com cheddar, bacon e picles" width="1536" height="1024">
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <p class="eyebrow reveal"><span></span> Burger & fire · desde 2021</p>
+        <h1 id="hero-title" class="reveal">Fogo alto.<br><em>Sabor de verdade.</em></h1>
+        <p class="hero-copy reveal">Smash na chapa, pão tostado e molho da casa. Sem atalhos — só o que faz um burger ser inesquecível.</p>
+        <div class="hero-actions reveal">
+          <a class="button button-primary" href="#cardapio">Explorar cardápio <span aria-hidden="true">↘</span></a>
+          <a class="text-link" href="#visite">Onde estamos <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="hero-stamp" aria-hidden="true"><span>feito na</span><strong>BRASA</strong><span>todo dia</span></div>
+      <div class="scroll-note" aria-hidden="true"><span></span> role para sentir o fogo</div>
+    </section>
+
+    <section class="proof-strip" aria-label="Diferenciais">
+      <div class="marquee">
+        <div class="marquee-track">
+          <span>Carne fresca</span><i>✦</i><span>Pão brioche</span><i>✦</i><span>Molho autoral</span><i>✦</i><span>Chapa quente</span><i>✦</i>
+          <span aria-hidden="true">Carne fresca</span><i aria-hidden="true">✦</i><span aria-hidden="true">Pão brioche</span><i aria-hidden="true">✦</i><span aria-hidden="true">Molho autoral</span><i aria-hidden="true">✦</i><span aria-hidden="true">Chapa quente</span><i aria-hidden="true">✦</i>
+        </div>
+      </div>
+    </section>
+
+    <section class="menu-section section" id="cardapio" aria-labelledby="menu-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div><p class="eyebrow"><span></span> Vai de quê?</p><h2 id="menu-title">Escolha sua<br><em>próxima obsessão.</em></h2></div>
+          <p>Clássicos bem feitos e combinações que carregam a assinatura da casa.</p>
+        </div>
+        <div class="menu-filters reveal" role="group" aria-label="Filtrar cardápio">
+          <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">Todos</button>
+          <button class="filter" type="button" data-filter="burger" aria-pressed="false">Burgers</button>
+          <button class="filter" type="button" data-filter="side" aria-pressed="false">Acompanhamentos</button>
+          <button class="filter" type="button" data-filter="drink" aria-pressed="false">Bebidas</button>
+        </div>
+        <div class="menu-grid">
+          <article class="menu-card reveal" data-category="burger">
+            <div class="card-art art-classic"><span>01</span><div class="mini-burger" aria-hidden="true">●</div><small>smash original</small></div>
+            <div class="card-body"><div><p>O clássico</p><h3>Brasa Smash</h3></div><strong>R$ 28</strong></div>
+            <p class="ingredients">Pão brioche, smash 120g, cheddar, picles e molho Brasa.</p>
+            <button class="add-button" type="button" data-name="Brasa Smash" data-price="28">Adicionar <span aria-hidden="true">+</span></button>
+          </article>
+          <article class="menu-card reveal" data-category="burger">
+            <div class="card-art art-bacon"><span>02</span><div class="mini-burger" aria-hidden="true">●</div><small>crocante e intenso</small></div>
+            <div class="card-body"><div><p>Mais pedido</p><h3>Ember Bacon</h3></div><strong>R$ 34</strong></div>
+            <p class="ingredients">Dois smashs, cheddar, bacon crocante, cebola e barbecue da casa.</p>
+            <button class="add-button" type="button" data-name="Ember Bacon" data-price="34">Adicionar <span aria-hidden="true">+</span></button>
+          </article>
+          <article class="menu-card reveal" data-category="burger">
+            <div class="card-art art-green"><span>03</span><div class="mini-burger" aria-hidden="true">●</div><small>sem carne, sem tédio</small></div>
+            <div class="card-body"><div><p>Veggie</p><h3>Green Flame</h3></div><strong>R$ 31</strong></div>
+            <p class="ingredients">Burger de grão-de-bico, queijo, rúcula, tomate e maionese verde.</p>
+            <button class="add-button" type="button" data-name="Green Flame" data-price="31">Adicionar <span aria-hidden="true">+</span></button>
+          </article>
+          <article class="menu-card reveal" data-category="side">
+            <div class="card-art art-fries"><span>04</span><div class="fries" aria-hidden="true">╱╲╱</div><small>corte da casa</small></div>
+            <div class="card-body"><div><p>Para dividir</p><h3>Brasa Fries</h3></div><strong>R$ 19</strong></div>
+            <p class="ingredients">Batata crocante, páprica defumada e maionese de alho assado.</p>
+            <button class="add-button" type="button" data-name="Brasa Fries" data-price="19">Adicionar <span aria-hidden="true">+</span></button>
+          </article>
+          <article class="menu-card reveal" data-category="side">
+            <div class="card-art art-rings"><span>05</span><div class="rings" aria-hidden="true">◎</div><small>empanado artesanal</small></div>
+            <div class="card-body"><div><p>Crocante</p><h3>Fire Rings</h3></div><strong>R$ 22</strong></div>
+            <p class="ingredients">Anéis de cebola, pimenta suave e molho ranch defumado.</p>
+            <button class="add-button" type="button" data-name="Fire Rings" data-price="22">Adicionar <span aria-hidden="true">+</span></button>
+          </article>
+          <article class="menu-card reveal" data-category="drink">
+            <div class="card-art art-drink"><span>06</span><div class="drink" aria-hidden="true">◒</div><small>refil de frescor</small></div>
+            <div class="card-body"><div><p>Da fonte</p><h3>Citrus Soda</h3></div><strong>R$ 12</strong></div>
+            <p class="ingredients">Soda artesanal de limão-siciliano, gengibre e alecrim.</p>
+            <button class="add-button" type="button" data-name="Citrus Soda" data-price="12">Adicionar <span aria-hidden="true">+</span></button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="signature section" id="assinatura" aria-labelledby="signature-title">
+      <div class="signature-image-wrap reveal">
+        <img src="./assets/signature-burger.webp" alt="Brasa Supreme com dois smashs, cheddar, bacon e cebola caramelizada" width="1024" height="1536" loading="lazy">
+        <span class="image-label">assinatura da casa · 2026</span>
+      </div>
+      <div class="signature-copy reveal">
+        <p class="eyebrow"><span></span> O favorito da casa</p>
+        <h2 id="signature-title">BRASA<br><em>SUPREME</em></h2>
+        <p class="signature-lead">Camadas de sabor, do primeiro estalo do bacon ao último toque do molho defumado.</p>
+        <ul>
+          <li><span>01</span> Dois smashs de 120g</li><li><span>02</span> Cheddar cremoso</li><li><span>03</span> Bacon e cebola caramelizada</li><li><span>04</span> Molho Brasa defumado</li>
+        </ul>
+        <div class="signature-order"><strong>R$ 39</strong><button class="button button-primary add-button" type="button" data-name="Brasa Supreme" data-price="39">Quero esse <span aria-hidden="true">+</span></button></div>
+      </div>
+    </section>
+
+    <section class="story section" id="sobre" aria-labelledby="story-title">
+      <div class="container story-grid">
+        <div class="story-copy reveal">
+          <p class="eyebrow"><span></span> Nossa brasa</p>
+          <h2 id="story-title">Poucos ingredientes.<br><em>Muita intenção.</em></h2>
+          <p>A BRASA. nasceu da vontade de fazer o simples direito: carne fresca, chapa muito quente e combinações que respeitam cada ingrediente.</p>
+          <p>A cozinha é aberta, o fogo fica à vista e cada pedido só começa quando você chama.</p>
+          <div class="story-stats"><div><strong>120g</strong><span>por smash</span></div><div><strong>180°</strong><span>de chapa</span></div><div><strong>100%</strong><span>feito na casa</span></div></div>
+        </div>
+        <div class="story-image reveal"><img src="./assets/restaurant.webp" alt="Salão da BRASA. com cozinha aberta, tijolos escuros e iluminação acolhedora" width="1920" height="1024" loading="lazy"><div class="open-kitchen"><span>cozinha</span><strong>ABERTA</strong></div></div>
+      </div>
+    </section>
+
+    <section class="reviews section" aria-labelledby="reviews-title">
+      <div class="container">
+        <div class="reviews-heading reveal"><p class="eyebrow"><span></span> Quem prova, fala</p><h2 id="reviews-title">4.9 <span aria-label="5 estrelas">★★★★★</span></h2><p>baseado em 326 avaliações</p></div>
+        <div class="review-grid">
+          <blockquote class="review reveal"><p>“Carne no ponto, borda crocante e um molho que realmente tem personalidade. Virou parada obrigatória.”</p><footer><div>MR</div><span><strong>Marina R.</strong><small>cliente local</small></span></footer></blockquote>
+          <blockquote class="review reveal"><p>“O Supreme entrega tudo o que promete. E a batata com páprica chega perfeita até no delivery.”</p><footer><div>GL</div><span><strong>Gabriel L.</strong><small>guia local</small></span></footer></blockquote>
+          <blockquote class="review reveal"><p>“Ambiente bonito sem frescura, atendimento rápido e o melhor veggie que já comi na cidade.”</p><footer><div>AC</div><span><strong>Ana C.</strong><small>cliente frequente</small></span></footer></blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="visit section" id="visite" aria-labelledby="visit-title">
+      <div class="container visit-panel reveal">
+        <div class="visit-main"><p class="eyebrow"><span></span> Chega mais</p><h2 id="visit-title">A brasa já<br><em>está acesa.</em></h2><a class="button button-light whatsapp-direct" href="https://wa.me/5551999990000?text=Oi%2C%20BRASA!%20Quero%20fazer%20um%20pedido." target="_blank" rel="noopener">Pedir pelo WhatsApp <span aria-hidden="true">↗</span></a></div>
+        <div class="visit-info">
+          <div><span>Onde</span><strong>Rua da Chapa, 88<br>Centro · Taquara/RS</strong></div>
+          <div><span>Quando</span><strong>Ter–Qui · 18h–23h<br>Sex–Dom · 18h–00h</strong></div>
+          <div><span>Fale com a gente</span><strong>(51) 99999-0000<br>@brasa.burger</strong></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><a class="brand" href="#inicio"><span>BRASA</span><b>.</b></a><p>Burger & fire · Taquara/RS</p><a href="#inicio" class="back-top">Voltar ao topo ↑</a></div><div class="container concept-note">Projeto conceito para portfólio · Marca, endereço e contato ilustrativos.</div></footer>
+
+  <div class="cart-backdrop" hidden></div>
+  <aside class="cart-panel" id="cart-panel" aria-labelledby="cart-title" aria-hidden="true">
+    <div class="cart-head"><div><p class="eyebrow"><span></span> Seu pedido</p><h2 id="cart-title">Sacola</h2></div><button class="cart-close" type="button" aria-label="Fechar sacola">×</button></div>
+    <div class="cart-items" aria-live="polite"><div class="empty-cart"><span>○</span><strong>Sua sacola está vazia</strong><p>Escolha seus favoritos no cardápio.</p></div></div>
+    <div class="cart-footer" hidden><div class="cart-total"><span>Total</span><strong>R$ 0</strong></div><a class="button button-primary checkout-button" href="#" target="_blank" rel="noopener">Finalizar no WhatsApp <span>↗</span></a><small>O pedido será enviado para confirmação.</small></div>
+  </aside>
+  <div class="toast" role="status" aria-live="polite"></div>
+  <script src="./script.js" defer></script>
+</body>
+</html>
