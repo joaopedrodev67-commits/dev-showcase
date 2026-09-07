@@ -13,6 +13,17 @@ const checkoutButton=document.querySelector('.checkout-button');
 const toast=document.querySelector('.toast');
 const cart=[];
 let lastFocus=null;
+const hero=document.querySelector('.hero');
+const heroImage=document.querySelector('.hero-image');
+const heroContent=document.querySelector('.hero-content');
+const heroStamp=document.querySelector('.hero-stamp');
+const scrollNote=document.querySelector('.scroll-note');
+const signature=document.querySelector('.signature');
+const signatureImage=document.querySelector('.signature-image-wrap img');
+const signatureCopy=document.querySelector('.signature-copy');
+const signatureLabel=document.querySelector('.image-label');
+const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)');
+let scrollTick=false;
 
 const formatPrice=value=>new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL',minimumFractionDigits:0}).format(value);
 
@@ -32,6 +43,42 @@ mainNav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{
 }));
 
 window.addEventListener('scroll',()=>siteHeader.classList.toggle('is-scrolled',scrollY>40),{passive:true});
+
+const clamp=(value,min=0,max=1)=>Math.min(max,Math.max(min,value));
+function renderScrollMotion(){
+  scrollTick=false;
+  if(reduceMotion.matches)return;
+  const heroProgress=clamp(scrollY/(hero.offsetHeight*.88));
+  const compact=innerWidth<620;
+  heroImage.style.setProperty('--hero-x',`${heroProgress*(compact?0:-3.4)}%`);
+  heroImage.style.setProperty('--hero-y',`${heroProgress*(compact?7:11)}%`);
+  heroImage.style.setProperty('--hero-scale',String(1.03+heroProgress*(compact?.08:.15)));
+  heroImage.style.setProperty('--hero-rotate',`${heroProgress*(compact?.4:1.35)}deg`);
+  heroImage.style.setProperty('--hero-saturation',String(1+heroProgress*.18));
+  heroImage.style.setProperty('--hero-brightness',String(1-heroProgress*.18));
+  heroContent.style.setProperty('--copy-x',`${heroProgress*(compact?0:-5)}vw`);
+  heroContent.style.setProperty('--copy-y',`${heroProgress*(compact?-4:-7)}vh`);
+  heroContent.style.setProperty('--copy-opacity',String(1-heroProgress*.86));
+  heroStamp.style.setProperty('--stamp-y',`${heroProgress*-60}px`);
+  heroStamp.style.setProperty('--stamp-rotate',`${8+heroProgress*42}deg`);
+  scrollNote.style.setProperty('--scroll-note-y',`${heroProgress*35}px`);
+  scrollNote.style.setProperty('--scroll-note-opacity',String(1-heroProgress*1.4));
+  hero.style.setProperty('--glow-x',`${heroProgress*-8}%`);
+  hero.style.setProperty('--glow-y',`${heroProgress*8}%`);
+
+  const rect=signature.getBoundingClientRect();
+  const signatureProgress=clamp((innerHeight-rect.top)/(innerHeight+rect.height));
+  signatureImage.style.setProperty('--signature-y',`${-10+signatureProgress*12}%`);
+  signatureImage.style.setProperty('--signature-scale',String(1.13-signatureProgress*.12));
+  signatureImage.style.setProperty('--signature-rotate',`${-1.2+signatureProgress*1.6}deg`);
+  signatureCopy.style.setProperty('--signature-copy-y',`${(signatureProgress-.5)*-36}px`);
+  signatureLabel.style.setProperty('--label-y',`${(signatureProgress-.5)*-28}px`);
+}
+function requestScrollMotion(){if(!scrollTick){scrollTick=true;requestAnimationFrame(renderScrollMotion)}}
+window.addEventListener('scroll',requestScrollMotion,{passive:true});
+window.addEventListener('resize',requestScrollMotion,{passive:true});
+reduceMotion.addEventListener?.('change',requestScrollMotion);
+requestScrollMotion();
 
 const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
   if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target)}
