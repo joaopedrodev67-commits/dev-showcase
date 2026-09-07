@@ -94,7 +94,7 @@ function renderScrollMotion(){
   ];
   assemblyLayers.forEach(layer=>{
     const step=Number(layer.dataset.step);
-    const start=.055+step*.135;
+    const start=step===0?-.11:.055+step*.135;
     const local=clamp((assemblyProgressValue-start)/.18);
     const eased=1-Math.pow(1-local,3);
     const entrance=entrances[step];
