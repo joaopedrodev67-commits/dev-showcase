@@ -22,6 +22,12 @@ const signature=document.querySelector('.signature');
 const signatureImage=document.querySelector('.signature-image-wrap img');
 const signatureCopy=document.querySelector('.signature-copy');
 const signatureLabel=document.querySelector('.image-label');
+const assembly=document.querySelector('.burger-assembly');
+const assemblyLayers=[...document.querySelectorAll('.burger-layer')];
+const assemblyStatus=document.querySelector('.assembly-status strong');
+const assemblyStatusCount=document.querySelector('.assembly-status small');
+const assemblyCounter=document.querySelector('.assembly-counter');
+const assemblyProgress=document.querySelector('.assembly-progress span');
 const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)');
 let scrollTick=false;
 
@@ -73,6 +79,38 @@ function renderScrollMotion(){
   signatureImage.style.setProperty('--signature-rotate',`${-1.2+signatureProgress*1.6}deg`);
   signatureCopy.style.setProperty('--signature-copy-y',`${(signatureProgress-.5)*-36}px`);
   signatureLabel.style.setProperty('--label-y',`${(signatureProgress-.5)*-28}px`);
+
+  const assemblyRect=assembly.getBoundingClientRect();
+  const assemblyProgressValue=clamp(-assemblyRect.top/(assemblyRect.height-innerHeight));
+  const compactAssembly=innerWidth<720;
+  const layerNames=['Base brioche tostada','Smash com cebola','Smash com cheddar','Bacon crocante','Picles e molho Brasa','Coroa de brioche'];
+  const entrances=[
+    {x:0,y:compactAssembly?68:72,r:-4},
+    {x:compactAssembly?58:64,y:12,r:7},
+    {x:compactAssembly?-58:-64,y:8,r:-7},
+    {x:compactAssembly?62:68,y:3,r:6},
+    {x:compactAssembly?-62:-68,y:-5,r:-6},
+    {x:0,y:compactAssembly?-68:-74,r:4}
+  ];
+  assemblyLayers.forEach(layer=>{
+    const step=Number(layer.dataset.step);
+    const start=.055+step*.135;
+    const local=clamp((assemblyProgressValue-start)/.18);
+    const eased=1-Math.pow(1-local,3);
+    const entrance=entrances[step];
+    layer.style.setProperty('--layer-x',`${entrance.x*(1-eased)}vw`);
+    layer.style.setProperty('--layer-y',`${entrance.y*(1-eased)}vh`);
+    layer.style.setProperty('--layer-rotate',`${entrance.r*(1-eased)}deg`);
+    layer.style.setProperty('--layer-scale',String(.82+eased*.18));
+    layer.style.setProperty('--layer-opacity',String(clamp(local*1.8)));
+    layer.style.setProperty('--layer-blur',`${(1-eased)*9}px`);
+  });
+  const activeStep=Math.min(5,Math.max(0,Math.floor((assemblyProgressValue-.02)/.135)));
+  assemblyStatus.textContent=layerNames[activeStep];
+  assemblyStatusCount.textContent=`0${activeStep+1} / 06`;
+  assemblyCounter.firstChild.nodeValue=`0${activeStep+1} `;
+  assemblyProgress.style.setProperty('--assembly-progress',String(assemblyProgressValue));
+  assembly.style.setProperty('--assembly-glow',String(.15+assemblyProgressValue*.85));
 }
 function requestScrollMotion(){if(!scrollTick){scrollTick=true;requestAnimationFrame(renderScrollMotion)}}
 window.addEventListener('scroll',requestScrollMotion,{passive:true});

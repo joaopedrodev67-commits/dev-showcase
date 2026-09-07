@@ -28,6 +28,7 @@
         <span></span><span></span>
       </button>
       <nav class="main-nav" id="main-menu" aria-label="Navegação principal">
+        <a href="#montagem">A montagem</a>
         <a href="#cardapio">Cardápio</a>
         <a href="#assinatura">O favorito</a>
         <a href="#sobre">Nossa brasa</a>
@@ -62,6 +63,33 @@
         <div class="marquee-track">
           <span>Carne fresca</span><i>✦</i><span>Pão brioche</span><i>✦</i><span>Molho autoral</span><i>✦</i><span>Chapa quente</span><i>✦</i>
           <span aria-hidden="true">Carne fresca</span><i aria-hidden="true">✦</i><span aria-hidden="true">Pão brioche</span><i aria-hidden="true">✦</i><span aria-hidden="true">Molho autoral</span><i aria-hidden="true">✦</i><span aria-hidden="true">Chapa quente</span><i aria-hidden="true">✦</i>
+        </div>
+      </div>
+    </section>
+
+    <section class="burger-assembly" id="montagem" aria-labelledby="assembly-title">
+      <div class="assembly-sticky">
+        <div class="assembly-ambient" aria-hidden="true"></div>
+        <div class="container assembly-layout">
+          <div class="assembly-copy">
+            <p class="eyebrow"><span></span> Role para montar</p>
+            <h2 id="assembly-title">Camada por<br><em>camada.</em></h2>
+            <p>Do pão tostado ao molho da casa: cada movimento revela o que faz o nosso burger ter sabor de verdade.</p>
+            <div class="assembly-status" aria-live="off">
+              <span>Agora entra</span><strong>Base brioche tostada</strong><small>01 / 06</small>
+            </div>
+          </div>
+          <div class="burger-stage" role="img" aria-label="Hambúrguer sendo montado camada por camada conforme a página é rolada">
+            <div class="stage-ring" aria-hidden="true"></div>
+            <img class="burger-layer layer-top" data-step="5" src="./assets/layers/burger-layers.png" alt="" width="1024" height="1536" loading="lazy">
+            <img class="burger-layer layer-pickles" data-step="4" src="./assets/layers/burger-layers.png" alt="" width="1024" height="1536" loading="lazy">
+            <img class="burger-layer layer-bacon" data-step="3" src="./assets/layers/burger-layers.png" alt="" width="1024" height="1536" loading="lazy">
+            <img class="burger-layer layer-patty-one" data-step="2" src="./assets/layers/burger-layers.png" alt="" width="1024" height="1536" loading="lazy">
+            <img class="burger-layer layer-patty-two" data-step="1" src="./assets/layers/burger-layers.png" alt="" width="1024" height="1536" loading="lazy">
+            <img class="burger-layer layer-bottom" data-step="0" src="./assets/layers/burger-layers.png" alt="" width="1024" height="1536" loading="lazy">
+          </div>
+          <div class="assembly-progress" aria-hidden="true"><span></span></div>
+          <p class="assembly-counter" aria-hidden="true">01 <span>/ 06</span></p>
         </div>
       </div>
     </section>
