@@ -12,6 +12,7 @@ const cartTotal=document.querySelector('.cart-total strong');
 const checkoutButton=document.querySelector('.checkout-button');
 const toast=document.querySelector('.toast');
 const cart=[];
+let lastFocus=null;
 
 const formatPrice=value=>new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL',minimumFractionDigits:0}).format(value);
 
@@ -46,10 +47,19 @@ document.querySelectorAll('.filter').forEach(button=>button.addEventListener('cl
 
 function announce(message){toast.textContent=message;toast.classList.add('show');clearTimeout(announce.timer);announce.timer=setTimeout(()=>toast.classList.remove('show'),2200)}
 
-function openCart(){cartBackdrop.hidden=false;requestAnimationFrame(()=>cartPanel.classList.add('is-open'));cartPanel.setAttribute('aria-hidden','false');document.body.classList.add('cart-open');cartClose.focus()}
-function closeCart(){cartPanel.classList.remove('is-open');cartPanel.setAttribute('aria-hidden','true');document.body.classList.remove('cart-open');setTimeout(()=>cartBackdrop.hidden=true,350);cartButton.focus()}
+function openCart(){lastFocus=document.activeElement;cartBackdrop.hidden=false;requestAnimationFrame(()=>cartPanel.classList.add('is-open'));cartPanel.setAttribute('aria-hidden','false');document.body.classList.add('cart-open');cartClose.focus()}
+function closeCart(){cartPanel.classList.remove('is-open');cartPanel.setAttribute('aria-hidden','true');document.body.classList.remove('cart-open');setTimeout(()=>cartBackdrop.hidden=true,350);lastFocus?.focus()}
 cartButton.addEventListener('click',openCart);cartClose.addEventListener('click',closeCart);cartBackdrop.addEventListener('click',closeCart);
-document.addEventListener('keydown',event=>{if(event.key==='Escape'&&cartPanel.classList.contains('is-open'))closeCart()});
+document.addEventListener('keydown',event=>{
+  if(!cartPanel.classList.contains('is-open'))return;
+  if(event.key==='Escape'){closeCart();return}
+  if(event.key==='Tab'){
+    const focusable=[...cartPanel.querySelectorAll('button,a[href]')].filter(item=>!item.hidden&&!item.disabled);
+    const first=focusable[0];const last=focusable.at(-1);
+    if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus()}
+    else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()}
+  }
+});
 
 function renderCart(){
   const quantity=cart.reduce((sum,item)=>sum+item.quantity,0);
@@ -78,3 +88,4 @@ cartItems.addEventListener('click',event=>{
 });
 
 renderCart();
+
