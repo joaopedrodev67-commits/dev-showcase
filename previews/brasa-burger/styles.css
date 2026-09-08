@@ -38,3 +38,6 @@
 
 /* Keep the flame inside the lettering; remove the separate flame strip. */
 .fire-word:before{content:none}
+
+/* Animated facts in the Nossa Brasa section */
+.count-up{font-variant-numeric:tabular-nums;min-width:3ch}

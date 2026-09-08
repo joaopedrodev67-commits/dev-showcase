@@ -123,6 +123,29 @@ const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
 }),{threshold:.12,rootMargin:'0px 0px -40px'});
 document.querySelectorAll('.reveal').forEach((element,index)=>{element.style.transitionDelay=`${Math.min(index%3,2)*70}ms`;observer.observe(element)});
 
+const statCounters=[...document.querySelectorAll('.count-up')];
+function animateCounter(counter){
+  const target=Number(counter.dataset.target);
+  const suffix=counter.dataset.suffix||'';
+  if(reduceMotion.matches){counter.textContent=`${target}${suffix}`;return}
+  const duration=1400;
+  const start=performance.now();
+  counter.textContent=`0${suffix}`;
+  function update(now){
+    const progress=clamp((now-start)/duration);
+    const eased=1-Math.pow(1-progress,4);
+    counter.textContent=`${Math.round(target*eased)}${suffix}`;
+    if(progress<1)requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+const counterObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
+  if(!entry.isIntersecting)return;
+  animateCounter(entry.target);
+  counterObserver.unobserve(entry.target);
+}),{threshold:.65});
+statCounters.forEach(counter=>counterObserver.observe(counter));
+
 document.querySelectorAll('.filter').forEach(button=>button.addEventListener('click',()=>{
   document.querySelectorAll('.filter').forEach(item=>{item.classList.remove('is-active');item.setAttribute('aria-pressed','false')});
   button.classList.add('is-active');button.setAttribute('aria-pressed','true');
@@ -173,4 +196,3 @@ cartItems.addEventListener('click',event=>{
 });
 
 renderCart();
-
