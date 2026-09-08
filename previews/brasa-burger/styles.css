@@ -35,3 +35,6 @@
 @supports not ((background-clip:text) or (-webkit-background-clip:text)){.fire-word{background:none;color:var(--ember);-webkit-text-fill-color:currentColor}}
 @media(max-width:620px){.fire-word:before{bottom:76%;height:.48em}.fire-word{filter:drop-shadow(0 0 4px rgba(255,95,24,.76)) drop-shadow(0 7px 14px rgba(255,53,8,.3))}}
 @media(prefers-reduced-motion:reduce){.fire-word,.fire-word:before,.fire-word:after{animation:none!important}.fire-word{background-position:0 70%,50% 82%,100% 72%,50% 52%}}
+
+/* Keep the flame inside the lettering; remove the separate flame strip. */
+.fire-word:before{content:none}
