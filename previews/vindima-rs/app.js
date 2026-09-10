@@ -17,7 +17,7 @@ const t=(pt,es)=>lang?es:pt;
 const money=n=>new Intl.NumberFormat(lang?'es-BR':'pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0}).format(n);
 const title=e=>e.title[lang];
 const categories=()=>({all:t('Todas','Todas'),wine:t('Vinhos & espumantes','Vinos y espumantes'),food:t('À mesa','En la mesa'),nature:t('Ao ar livre','Al aire libre')});
-const image=e=>`https://images.unsplash.com/${e.image}?auto=format&fit=crop&w=900&q=80`;
+const image=e=>e.id==='piquenique'?'assets/picnic-editorial.webp':e.id==='espumantes'?'assets/wine-editorial.webp':`https://images.unsplash.com/${e.image}?auto=format&fit=crop&w=900&q=80`;
 function toast(message){$('#toast').textContent=message;$('#toast').classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').classList.remove('visible'),2600);}
 function persist(){try{localStorage.setItem('vindima-route-v1',JSON.stringify(state));}catch{toast(t('Roteiro disponível nesta sessão; armazenamento indisponível.','Itinerario disponible en esta sesión; almacenamiento no disponible.'));}$('#route-count').textContent=state.items.length;}
 function save(id){const index=state.items.findIndex(x=>x.id===id);if(index<0)state.items.push({id,day:1});else state.items.splice(index,1);persist();renderCards();renderRoute();toast(index<0?t('Experiência adicionada ao roteiro.','Experiencia añadida al itinerario.'):t('Experiência removida do roteiro.','Experiencia eliminada del itinerario.'));}
