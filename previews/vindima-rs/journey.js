@@ -13,6 +13,7 @@
   ];
   const reduced = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
   const map = $('.map-panel svg');
+  map.setAttribute('role','group');
   const routePath = document.createElementNS(ns,'path');
   routePath.id='connected-route'; routePath.setAttribute('fill','none');
   map.append(routePath);
