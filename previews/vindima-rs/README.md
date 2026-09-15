@@ -8,6 +8,12 @@ Na raiz do repositório: `python -m http.server 8080`. Abra `/previews/vindima-r
 
 ## Recursos
 
+- Mapa com cidades clicáveis, contagem de experiências salvas e percurso animado na ordem do roteiro. O traçado é esquemático e não substitui navegação real.
+- Planejador agrupado por dia: duração das atividades, alerta acima de seis horas, botões para reordenar e arraste por alça no computador. Horas não incluem refeições ou deslocamento.
+- Seletor de quatro estações com imagens, sugestões e cores próprias; segue o idioma ativo.
+- Expansão da imagem do cartão para o diálogo, desativada com movimento reduzido.
+- Apresentação de portfólio dentro da página, com contexto, decisões e acesso ao código.
+
 - Cena de vinho fixada durante parte da rolagem: preenchimento da taça, narrativa em três etapas e controles clicáveis equivalentes.
 - Inclinação da taça ao mover o mouse, botão para girar, brilho e profundidade nos cartões, parallax da imagem inicial e revelação de seções ao entrar na tela.
 - Duas imagens autorais e um vídeo MP4 de oito segundos com movimento de câmera, armazenados em `assets/`. [Origem e prompts](assets/PROVENANCE.md).

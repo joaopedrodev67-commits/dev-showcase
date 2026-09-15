@@ -1,5 +1,13 @@
 # Original media — Vindima RS
 
+## spring-editorial.webp — 2026-09-14
+
+Built-in image generation prompt: Photorealistic editorial landscape 1536x1024, spring in rural vineyard hills inspired by Serra Gaúcha. Fresh green grape leaves, footpath among vines, delicate white wildflowers, morning sunlight, rounded hills and araucaria trees. No dramatic cliffs or snow. Peaceful wine tourism photography, forest green and cream palette. No people, text or watermark. Conceptual scene, not a specific real location.
+
+## autumn-editorial.webp — 2026-09-14
+
+Built-in image generation prompt: Photorealistic editorial wine tourism photograph for the autumn seasonal selector, landscape 1536x1024. Rolling vineyard hills inspired by Serra Gaúcha in late autumn, copper orange and golden leaves, mist in valleys, distant rustic stone farmhouse, no alpine peaks. Wooden terrace table and ruby wine in foreground, warm late-afternoon light, quiet mood. No people, text, logos or watermark. Conceptual illustration, not a photograph of an actual location.
+
 Generated on 2026-09-10 using the built-in image generation tool. These are conceptual images inspired by wine tourism, not photographs of specific real establishments.
 
 ## wine-editorial.webp
